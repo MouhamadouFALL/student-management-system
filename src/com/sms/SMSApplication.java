@@ -14,7 +14,7 @@ public class SMSApplication extends Application {
 	private Stage primaryStage;
 	private BorderPane mainUI;
 	private AnchorPane studentUI;
-	//private DataSource dataSource;
+	private DataSource dataSource;
 	
 	private static SMSApplication instance;
 
@@ -23,7 +23,7 @@ public class SMSApplication extends Application {
 		instance = this;
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Student Management System");
-		//dataSource = new DataSource();
+		dataSource = new DataSource();
 		
 		initRootLayout();
 		showUserUI();
@@ -57,11 +57,15 @@ public class SMSApplication extends Application {
 		catch (IOException e) { e.printStackTrace();}
 	}
 	
-	//public DataSource getDataSource() {
-	//	return dataSource;
-	//}
+	public DataSource getDataSource() {
+		return dataSource;
+	}
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public static SMSApplication getInstance() {
+		return instance;
 	}
 }

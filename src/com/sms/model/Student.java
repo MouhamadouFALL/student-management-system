@@ -31,9 +31,66 @@ public class Student {
 		this.login = new SimpleStringProperty();
 		this.password = new SimpleStringProperty();
 	}
+
 	
 	
 	
-	//////////////////////////////////////// GETTERS AND SETTERS ///////////////////////////////////////////
+	////////////////////////////////////////GETTERS AND SETTERS ///////////////////////////////////////////
+	
+	public StringProperty getNom() {
+		return nom;
+	}
+
+	public void setNom(StringProperty nom) {
+		this.nom = nom;
+	}
+
+	public StringProperty getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(StringProperty prenom) {
+		this.prenom = prenom;
+	}
+
+	public StringProperty getEmail() {
+		return email;
+	}
+
+	public void setEmail(StringProperty email) {
+		this.email = email;
+	}
+
+	public StringProperty getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(StringProperty telephone) {
+		this.telephone = telephone;
+	}
+
+	public StringProperty getLogin() {
+		return login;
+	}
+
+	public void setLogin(StringProperty login) {
+		this.login = login;
+	}
+
+	public StringProperty getPassword() {
+		return password;
+	}
+
+	public void setPassword(StringProperty password) {
+		this.password = password;
+	}
+
+	public StringProperty getRole() {
+		return role;
+	}
+
+	public void setRole(StringProperty role) {
+		this.role = role;
+	}
 	
 }
