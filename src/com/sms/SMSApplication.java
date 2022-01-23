@@ -60,12 +60,12 @@ public class SMSApplication extends Application {
 	public DataSource getDataSource() {
 		return dataSource;
 	}
-
-	public static void main(String[] args) {
-		launch(args);
-	}
 	
 	public static SMSApplication getInstance() {
 		return instance;
+	}
+
+	public static void main(String[] args) {
+		launch(args);
 	}
 }
