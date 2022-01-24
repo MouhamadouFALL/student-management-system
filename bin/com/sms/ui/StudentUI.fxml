@@ -85,9 +85,9 @@
                         </Label>
                      </children>
                   </GridPane>
-                  <FlowPane alignment="TOP_RIGHT" layoutX="24.0" layoutY="184.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0">
+                  <FlowPane alignment="TOP_RIGHT" layoutX="24.0" layoutY="184.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="355.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Nouveau">
+                        <Button mnemonicParsing="false" onAction="#handleNewStudent" text="Nouveau">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -95,7 +95,7 @@
                               <Insets left="5.0" right="5.0" top="5.0" />
                            </FlowPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Modifier">
+                        <Button mnemonicParsing="false" onAction="#handleModifierStudent" text="Modifier">
                            <FlowPane.margin>
                               <Insets left="5.0" right="5.0" top="5.0" />
                            </FlowPane.margin>
@@ -103,7 +103,7 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" text="Supprimer">
+                        <Button mnemonicParsing="false" onAction="#handleDeleteStudent" text="Supprimer">
                            <font>
                               <Font size="13.0" />
                            </font>

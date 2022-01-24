@@ -4,6 +4,8 @@ import com.sms.SMSApplication;
 import com.sms.model.Student;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -52,6 +54,9 @@ public class StudentUIController {
 		addChangeListener();
 	}
 	
+	
+	//---------------------------------------------------------------------------------------------------------------------------------
+	///////////////////////////////////////////////// Sélectionner un étudiant et l'afficher //////////////////////////////////////////
 	/**
 	* Fills all text fields to show details about the user.
 	* If the specified user is null, all text fields are cleared.
@@ -83,11 +88,64 @@ public class StudentUIController {
 	}
 	
 	/*
-	 * Suveillez les changements sur la table et affiche les informations dans le formulaire
+	 * Suveillez les changements sur la table et affiche les informations dans le formulaire (écouter)
 	 */
 	private void addChangeListener() {
 		studentTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> displayStudentDetails(newValue));
 	}
+	//---------------------------------------------------------------   FIN   --------------------------------------------------------------------------------------
 	
+	
+	///////////////////////////////////////////////////////////// Supprimer un étudiant /////////////////////////////////////////////////////////////////
+	/**
+	 * Called when the user clicks on the Supprimer button
+	 */
+	@FXML
+	private void handleDeleteStudent() {
+		int selectedIndex = studentTable.getSelectionModel().getSelectedIndex();
+		if (selectedIndex >= 0) {
+			studentTable.getItems().remove(selectedIndex);
+		}
+		else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Warning ...");
+			alert.setHeaderText("Alert !");
+			alert.setContentText("veuillez sélectionner un student svp !");
+			
+			alert.showAndWait();
+		}
+	}
+	
+//////////////////////////////////  
+	@FXML
+	 private void handleNewStudent() {
+		 Student student = new Student();
+		 
+		 boolean validerClicked = SMSApplication.getInstance().showStudentEditUI(student);
+		 if (validerClicked) {
+			 SMSApplication.getInstance().getDataSource().getStudents().add(student);
+		 }
+	 }
+	 
+	 @FXML
+	 private void handleModifierStudent() {
+		 Student selectedStudent = studentTable.getSelectionModel().getSelectedItem();
+		 
+		 if (selectedStudent != null) {
+			 boolean validerClicked = SMSApplication.getInstance().showStudentEditUI(selectedStudent);
+			 if (validerClicked) {
+				 displayStudentDetails(selectedStudent);
+			 }
+		 }
+		 else {
+			 // Nothing selected
+			 Alert alert = new Alert(AlertType.WARNING);
+			 alert.setTitle("Aucune selection");
+			 alert.setHeaderText("Aucun étudiant a été sélectionner!");
+			 alert.setContentText("Veuillez choisir un étudiant svp !");
+			 
+			 alert.showAndWait();
+		 }
+	 }
 	
 }
